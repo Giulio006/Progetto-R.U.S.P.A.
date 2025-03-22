@@ -12,14 +12,14 @@ void loop() {
 }
 
 void nunchuk_init() {
-  Wire.beginTransmission(0x52); // Indirizzo del Nunchuk
+  Wire.beginTransmission(0xA4); // Indirizzo del Nunchuk
   Wire.write(0x40);
   Wire.write(0x00);
   Wire.endTransmission();
 }
 
 void nunchuk_getdata() {
-  Wire.requestFrom(0xA4, 6); // Richiedi 6 byte di dati dal Nunchuk
+  Wire.requestFrom(0xA5, 6); // Richiedi 6 byte di dati dal Nunchuk
 
   while (Wire.available()) {
     byte data = Wire.read();
